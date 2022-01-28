@@ -265,7 +265,7 @@ QVariantMap QQmlSortFilterProxyModel::get(int row) const
 {
     QVariantMap map;
     QModelIndex modelIndex = index(row, 0);
-    QHash<int, QByteArray> roles = roleNames();
+    const QHash<int, QByteArray> roles = roleNames();
     for (QHash<int, QByteArray>::const_iterator it = roles.begin(); it != roles.end(); ++it)
         map.insert(it.value(), data(modelIndex, it.key()));
     return map;
@@ -508,7 +508,7 @@ void QQmlSortFilterProxyModel::invalidateProxyRoles()
 QVariantMap QQmlSortFilterProxyModel::modelDataMap(const QModelIndex& modelIndex) const
 {
     QVariantMap map;
-    QHash<int, QByteArray> roles = roleNames();
+    const QHash<int, QByteArray> roles = roleNames();
     for (QHash<int, QByteArray>::const_iterator it = roles.begin(); it != roles.end(); ++it)
         map.insert(it.value(), sourceModel()->data(modelIndex, it.key()));
     return map;
