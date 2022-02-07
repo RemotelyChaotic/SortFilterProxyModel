@@ -340,6 +340,7 @@ bool QQmlSortFilterProxyModel::filterAcceptsRow(int source_row, const QModelInde
     bool baseAcceptsRow = valueAccepted && QSortFilterProxyModel::filterAcceptsRow(source_row, source_parent);
     baseAcceptsRow = baseAcceptsRow && std::all_of(m_filters.begin(), m_filters.end(),
         [=, &source_parent] (Filter* filter) {
+            Q_UNUSED(source_parent)
             return filter->filterAcceptsRow(sourceIndex, *this);
         }
     );
