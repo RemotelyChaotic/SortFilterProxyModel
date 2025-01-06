@@ -52,4 +52,6 @@ target_include_directories(${PROJECT_NAME} PUBLIC
 
 if (WIN32)
   target_compile_definitions(${PROJECT_NAME} PUBLIC _SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING)
+elseif (UNIX AND NOT APPLE)
+  target_compile_options(${PROJECT_NAME} PUBLIC -fPIC)
 endif()

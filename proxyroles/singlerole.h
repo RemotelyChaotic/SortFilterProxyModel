@@ -25,7 +25,7 @@ private:
     QString m_name;
 
 private:
-    QVariant data(const QModelIndex &sourceIndex, const QQmlSortFilterProxyModel &proxyModel, const QString &name) final;
+    QVariant data(const QModelIndex &sourceIndex, const QQmlSortFilterProxyModel &proxyModel, const QString &name) override final;
     virtual QVariant data(const QModelIndex &sourceIndex, const QQmlSortFilterProxyModel &proxyModel) = 0;
 };
 
